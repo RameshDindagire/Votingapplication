@@ -1,53 +1,47 @@
-pipeline {
+pipeline{
     agent any
-    tools {
-        maven 'Maven'
+    tools{
+        maven'Maven'
     }
-    stages {
-        stage("Test") {
-            steps {
-                bat 'mvn --version'
-                echo "========Getting Maven Version========"
+    stages{
+        stage("test"){
+            steps{
+                bat'mvn --version'
+                echo "========executing A========"
             }
+           
         }
-        stage("Build") {
-            steps {
-                bat 'mvn clean package'
-                echo "========Creating Build Successfully ========"
+        stage("Build"){
+            steps{
+                bat'mvn clean package'
+                echo "========executing A========"
             }
+           
         }
-        stage("Deploy on Test") {
-            steps {
-                script {
-                    def tomcatServer = Tomcat8(adapters: [tomcat8(credentialsId: 'adminserver1', path: '', url: 'http://localhost:9002/')])
-                    def deployed = tomcatServer.deploy(contextPath: '/votingApplication', war: '**/*.war')
-                    if (deployed) {
-                        echo "========Complete Deploy on Tomcat========"
-                    } else {
-                        error "Deployment on Test failed"
-                    }
-                }
+        stage("Deploy on test"){
+            steps{
+                deploy adapters: [tomcat8(credentialsId: 'adminserver1', path: '', url: 'http://localhost:9002/')], contextPath: '/VotingApplication', war: '**/*.war'
+                echo "========executing A========"
             }
+           
         }
-        stage("Deploy on Prod") {
-            steps {
-                script {
-                    // Similar deployment steps as the test stage
-                    // Modify credentialsId, contextPath, and other parameters accordingly
-                    echo "========Complete Deploy on Tomcat Prod========"
-                }
+        stage("Deploy on prod"){
+            steps{
+                //  deploy adapters: [tomcat8(credentialsId: 'adminserver1', path: '', url: 'http://localhost:9002/')], contextPath: '/ReadJsonData', war: '**/*.war'
+                echo "========executing A========"
             }
+           
         }
     }
-    post {
-        always {
-            echo "========Always========"
+    post{
+        always{
+            echo "========always========"
         }
-        success {
-            echo "========Pipeline executed successfully ========"
+        success{
+            echo "========pipeline executed successfully ========"
         }
-        failure {
-            echo "========Pipeline execution failed========"
+        failure{
+            echo "========pipeline execution failed========"
         }
     }
 }
