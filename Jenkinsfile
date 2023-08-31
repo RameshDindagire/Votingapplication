@@ -13,7 +13,7 @@ pipeline{
         }
         stage("Build"){
             steps{
-                bat'mvn clean package'
+                bat'mvn package'
                 echo "========executing A========"
             }
            
