@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -10,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.Candidates;
 import com.example.demo.entity.User;
+import com.example.demo.repository.CandidatesRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.VoteUsersRepository;
 import com.example.demo.service.UserService;
@@ -28,18 +33,21 @@ public class Vote_users_admin {
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private UserService userService;
+	private CandidatesRepository candidatesRepository;
 	
 	@GetMapping("/admin")
 	public String getAllCandidatesVotes(Model model) {
 		List<Object[]> candidateVoteCounts = this.voteUsersRepository.getCandidateVoteCounts();
+		
+		
 		System.out.println(candidateVoteCounts.toString());
 		StringBuilder voteCountString = new StringBuilder();
 	    for (Object[] voteCount : candidateVoteCounts) {
 	        String candidates = voteCount[0].toString();
+	        
 	        Long totalVotes = (Long) voteCount[1];
 
-	        voteCountString.append("Candidate Name: ").append(candidates)
+	        voteCountString.append("Candidate ID: ").append(candidates)
 	                        .append(", Total Votes: ").append(totalVotes)
 	                        .append("\n");
 	    }
@@ -73,17 +81,15 @@ public class Vote_users_admin {
 	    
 	    if (user.getRole().equalsIgnoreCase("ROLE_ADMIN")) {
 	    	List<Object[]> candidateVoteCounts = this.voteUsersRepository.getCandidateVoteCounts();
-			System.out.println(candidateVoteCounts.toString());
+	    	
 			StringBuilder voteCountString = new StringBuilder();
 		    for (Object[] voteCount : candidateVoteCounts) {
 		        String candidates = voteCount[0].toString();
 		        Long totalVotes = (Long) voteCount[1];
-
-		        voteCountString.append("Candidate Name: ").append(candidates)
+		        voteCountString.append("Candidate ID: ").append(candidates)
 		                        .append(", Total Votes: ").append(totalVotes)
 		                        .append("\n");
 		    }
-
 		    System.out.println("Candidate Vote Counts:" + voteCountString.toString());
 
 			model.addAttribute("canidatevotes", candidateVoteCounts);

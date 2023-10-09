@@ -7,7 +7,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/candidateList.css}">
 </head>
 <body>
 	<section>
@@ -44,32 +44,26 @@
 							th:classappend="${session.message.type}"
 							class="alert alert-primary" role="alert">
 							<p class="text-center" th:text="${session.message.content}"></p>
+							<th:block th:text="${@sessionHelper.removeAttribute()}">
+							</th:block>
 
 						</div>
-						<form id="candidateForm" action="/user/select" method="post">
-							<h2>Candidates List</h2>
-							<table>
-								<thead>
-									<tr>
-										<th>Select</th>
-										<th>Candidate ID</th>
-										<th>Candidate Special Number</th>
-										<th>Name</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr th:each="candidate : ${candidateUsers}">
-										<td><input type="radio" name="selectedCandidateId"
-											th:value="${candidate.candidate_id}" /></td>
-										<td th:text="${candidate.c_id}"></td>
-										<td th:text="${candidate.candidate_id}"></td>
-										<td th:text="${candidate.name}"></td>
-									</tr>
-								</tbody>
-							</table>
-
-							<input type="submit" value="Submit Vote">
-						</form>
+						
+						<form id="candidateForm" action="/user/select" method="post" class="form">
+							<div class="candidate-list">
+							<h2 class="text-center">Candidates List</h2> 
+								<label th:each="candidate : ${candidateUsers}"
+									for="candidate-${candidate.candidate_id}"> <input
+									type="radio" name="selectedCandidateId"
+									id="candidate-${candidate.candidate_id}"
+									th:value="${candidate.candidate_id}"
+									th:checked="${candidate.candidate_id == selectedCandidateId}" />
+									<span th:text="${candidate.name}"></span>
+								</label> <br>
+								<input type="submit" value="Submit Vote" class="submit-button" disabled>
+								<!-- Add a line break to separate each radio button and name pair -->
+							</div>
+							</form>
 					</div>
 				</div>
 			</div>
@@ -88,12 +82,33 @@
 		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 		crossorigin="anonymous"></script>
 
-	<!-- Option 2: Separate Popper and Bootstrap JS -->
-	<!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-    -->
+	 <script type="text/javascript">
+	function checkProgress() {
+		  if ($("input:radio[name*='selectedCandidateId']:checked").length != 0) {
+		    $('.submit-button').prop('disabled', false);
+		  } else {
+		    $('.submit-button').prop('disabled', true);
+		  }
+		}
+
+		$(function () {
+		  // Set the status once the doc loads.
+		  checkProgress();
+		  // Set it again when any of the radio buttons are clicked.
+		  $("input:radio[name*='selectedCandidateId']").on("click change", checkProgress);
+		  $('.submit-button').hover(
+		            function () {
+		                if ($(this).prop('disabled')) {
+		                    $(this).css('cursor', 'not-allowed');
+		                }
+		            },
+		            function () {
+		                $(this).css('cursor', 'pointer');
+		            }
+		        );
+		    });
+</script> 
+
 
 
 </body>

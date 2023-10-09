@@ -46,11 +46,7 @@ public class CandidateController {
 	public String getCandidate(Model model) {
 		List<Candidates> allCandidates = this.candidatesService.getAllCandidates();
 		System.out.println("==================>" + allCandidates);
-		
-//		String uniqueToken = UUID.randomUUID().toString();
-//	    
-//	    // Store the token in the session
-//	    session.setAttribute("voteToken", uniqueToken);
+	
 	    
 		model.addAttribute("candidateUsers", allCandidates);
 
@@ -68,14 +64,7 @@ public class CandidateController {
 	    List<VoteUsers> voteUsersVal = this.voteUserService.getVoteUsersByUser(user.getId().toString());
 
 	    if (voteUsersVal.isEmpty()) {
-	        // Retrieve the stored token from the session
-//	        String storedToken = (String) session.getAttribute("voteToken");
-//
-//	        if (storedToken == null || !storedToken.equals(submittedToken)) {
-//	            // Tokens do not match, display an error message
-//	            session.setAttribute("message", new Message("Token validation failed. Please try again.", "alert-danger"));
-//	            return "normal/candidates";
-//	        }
+	    
 
 	        System.out.println("----------------->" + selectedCandidateId);
 	        Candidates selectedCandidate = candidatesRepository.findByCandidateId(selectedCandidateId);
@@ -93,13 +82,15 @@ public class CandidateController {
 	    } else {
 	        System.out.println("User Already Voted>>>>>>>>>" + voteUsersVal.get(0).getUser());
 	        session.setAttribute("message", new Message("You Have Already Voted.", "alert-danger"));
-	        return "normal/candidates";
+	        if (session != null) {
+	            model.addAttribute("sessionMessage", session);
+	        }
+	        return "/normal/candidates";
+	        
+	        
 	    }
 
-	    // Remove the token from the session after processing
-//	    session.removeAttribute("voteToken");
-
-	    return "normal/candidates";
+	    return "/normal/candidates";
 	}
 	
 

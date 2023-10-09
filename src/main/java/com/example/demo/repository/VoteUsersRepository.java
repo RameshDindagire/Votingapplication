@@ -17,4 +17,6 @@ public interface VoteUsersRepository extends JpaRepository<VoteUsers, Integer>{
 	
 	@Query("SELECT v.candidates, COUNT(v.user) AS totalVotes FROM VoteUsers v GROUP BY v.candidates")
     List<Object[]> getCandidateVoteCounts();
+    
+   
 }

@@ -1,5 +1,5 @@
 body{
-	background: #e2e2e2!important;
+	background:rgb(241, 247, 252)!important;
 }
 
 .bg-primary{
@@ -83,3 +83,4 @@ body{
 	font-size: 36px;
 	cursor: pointer;
 }
+
