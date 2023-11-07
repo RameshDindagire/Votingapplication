@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.example.demo.entity.User;
 
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 
 	boolean existsByUsername(String username);
 	
@@ -20,6 +20,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	User findByUsername(String username);
 	
+	 boolean existsByEmail(String email);
 
 //	User findByEmail(String email);
 }

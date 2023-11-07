@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.example.demo.config.OtpEmailTemplate;
 import com.example.demo.dto.UserRequest;
 import com.example.demo.entity.Candidates;
 import com.example.demo.entity.User;
@@ -32,6 +33,9 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private OtpEmailTemplate emailTemplate;
 
 	public User addUser(User userRequest) {
 		
@@ -48,6 +52,7 @@ public class UserService {
 					.password(passwordEncoder.encode(userRequest.getPassword()))
 					.pannumber(userRequest.getPannumber())
 					.mobilNumber(userRequest.getMobilNumber())
+					.email(userRequest.getEmail())
 					.role("ROLE_ADMIN")
 					.build();
 			this.userRepository.save(user);
@@ -58,10 +63,12 @@ public class UserService {
 					.password(passwordEncoder.encode(userRequest.getPassword()))
 					.pannumber(userRequest.getPannumber())
 					.mobilNumber(userRequest.getMobilNumber())
+					.email(userRequest.getEmail())
 					.role("ROLE_USER")
 					.build();
 			this.userRepository.save(user);
 			log.info("User {} Saved "+user.getUsername());
+//			emailTemplate.AfterRegisterUser(userRequest.getEmail().toString(), userRequest.getUsername().toString());
 		}
 		return user;
 	}
@@ -80,13 +87,7 @@ public class UserService {
 		
 		
 	}
-//	public boolean isUserPresent(String email) {
-//	       return userRepository.findByEmail(email) != null;
-//	   }
-//
-//	public User findByEmail(String email) {
-//	       return userRepository.findByEmail(email);
-//	   }
+
 	
 	
 }

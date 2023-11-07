@@ -7,6 +7,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="stylesheet" th:href="@{/css/candidateList.css}">
 </head>
 <body>
@@ -32,9 +33,14 @@
 
 		</div>
 	</nav>
+	
 	</section>
 	<section>
-
+		<div class="button-space">
+			<a href="javascript:history.back()" class="back-arrow-link">
+				<i class="fas fa-arrow-left"></i>
+			</a>
+		</div>
 		<div class="container">
 			<div class="row">
 
@@ -62,7 +68,9 @@
 								</label> <br>
 								<input type="submit" value="Submit Vote" class="submit-button" disabled>
 								<!-- Add a line break to separate each radio button and name pair -->
+								
 							</div>
+							
 							</form>
 					</div>
 				</div>
@@ -81,33 +89,8 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
 		crossorigin="anonymous"></script>
-
-	 <script type="text/javascript">
-	function checkProgress() {
-		  if ($("input:radio[name*='selectedCandidateId']:checked").length != 0) {
-		    $('.submit-button').prop('disabled', false);
-		  } else {
-		    $('.submit-button').prop('disabled', true);
-		  }
-		}
-
-		$(function () {
-		  // Set the status once the doc loads.
-		  checkProgress();
-		  // Set it again when any of the radio buttons are clicked.
-		  $("input:radio[name*='selectedCandidateId']").on("click change", checkProgress);
-		  $('.submit-button').hover(
-		            function () {
-		                if ($(this).prop('disabled')) {
-		                    $(this).css('cursor', 'not-allowed');
-		                }
-		            },
-		            function () {
-		                $(this).css('cursor', 'pointer');
-		            }
-		        );
-		    });
-</script> 
+<script th:src="@{/js/CandidatesList.js}"></script>
+	 
 
 
 

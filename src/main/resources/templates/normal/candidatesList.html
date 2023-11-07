@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
 
-<head th:fragment="mainhead">
+	<meta charset="UTF-8" />
+	<title>Document</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -13,16 +15,10 @@
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
- <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
-	
 	<link rel="stylesheet" th:href="@{/css/adminDashbord.css}">
-
 </head>
-
 <body>
-	<nav class="navbar navbar-inverse bs-dark" th:fragment="header">
-
+<nav class="navbar navbar-inverse bs-dark">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
 			data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 			<span class="sr-only">Toggle navigation</span>
@@ -41,7 +37,8 @@
 						aria-expanded="false">Explores <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a th:href="@{/admin/v1/getAllCandidates}">CandidatesList</a></li>
-						<li><a th:href="@{/db-create}">DbCreate</a></li>
+						<li><a >Voting Form</a></li>
+						<li><a th:href="@{/createForm}">DbCreate</a></li>
 						<li><a href="#">Fashion</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#">Gallery</a></li>
@@ -62,7 +59,7 @@
 						aria-haspopup="true" aria-expanded="false">
 						Account
 						<img src="https://docs.htmlcsstoimage.com/assets/images/dog.jpg" class="img-circle"
-							alt="Profile Image" th:text="${user.username}" />
+							alt="Profile Image" />
 
 					</a>
 
@@ -71,7 +68,7 @@
 
 						<li><a href="#exampleModalCenter" data-toggle="modal">Add Admin</a></li>
 						<li><a href="#">Inbox</a></li>
-						<li><a href="#" id="followers-link">Create DB</a></li>
+						<li><a href="#">Followers</a></li>
 						<li role="separator" class="divider"></li>
 						<li><a href="#" th:href="@{/logout}">Logout</a></li>
 
@@ -132,81 +129,34 @@
 				</li>
 			</ul>
 		</div>
-		
-		<!--db create code -->
-		<div class="container">
-     <!-- Modal -->
-     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Smart Wizard modal</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                 </div>
-                 <div class="modal-body">
-                     <div id="smartwizard">
-                         <ul>
-                             <li><a href="#step-1">Step 1<br /><small>Account Info</small></a></li>
-                             <li><a href="#step-2">Step 2<br /><small>Personal Info</small></a></li>
-                             <li><a href="#step-3">Step 3<br /><small>Payment Info</small></a></li>
-                             <li><a href="#step-4">Step 4<br /><small>Confirm details</small></a></li>
-                         </ul>
-                         <div class="mt-4">
-                             <div id="step-1">
-                                 <div class="row">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Name" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Email" required> </div>
-                                 </div>
-                                 <div class="row mt-3">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Password" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Repeat password" required> </div>
-                                 </div>
-                             </div>
-                             <div id="step-2">
-                                 <div class="row">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Address" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="City" required> </div>
-                                 </div>
-                                 <div class="row mt-3">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="State" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Country" required> </div>
-                                 </div>
-                             </div>
-                             <div id="step-3" class="">
-                                 <div class="row">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Number" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Holder Name" required> </div>
-                                 </div>
-                                 <div class="row mt-3">
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="CVV" required> </div>
-                                     <div class="col-md-6"> <input type="text" class="form-control" placeholder="Mobile Number" required> </div>
-                                 </div>
-                             </div>
-                             <div id="step-4" class="">
-                                 <div class="row">
-                                     <div class="col-md-12"> <span>Thanks For submitting your details with BBBootstrap.com. we will send you a confirmation email. We will review your details and revert back.</span> </div>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-	</nav>
-	<div>
-		
-		
- </div>
-	</div>
-	
-	<div th:fragment="footer">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		</nav>
+ 	 <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="card l-bg-blue-dark" th:each="candidate : ${canidatevotes}">
+                    <div class="card-statistic-3 p-4">
+                        <div class="card-icon card-icon-large"><i class="fas fa-users"></i></div>
+                        <div class="mb-4" >
+                            <h5 class="card-title mb-0" th:text="${candidate[0]}"></h5>
+                        </div>
+                        <div class="row align-items-center mb-2 d-flex">
+                            <div class="col-8">
+                                <h2 class="d-flex align-items-center mb-0" >
+                                    <p class="card-text total-votes" th:text="'Total Votes: ' + ${candidate[1]}">Total Votes</p>
+                                </h2>
+                            </div>
+                            <div class="col-4 text-right">
+                                <span>9.23% <i class="fa fa-arrow-up"></i></span>
+                            </div>
+                        </div>
+                        <div class="progress mt-1 " data-height="8" style="height: 8px;">
+                            <div class="progress-bar l-bg-green" role="progressbar" data-width="25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script>
-	
-	
 	<script th:src="@{/js/adminDashbord.js}"></script>
-	</div>
 </body>
-
 </html>

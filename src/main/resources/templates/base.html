@@ -18,11 +18,11 @@
 		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 	
 </head>
 <body>
+	<!-- Start Nav Bar -->
 	<div th:fragment="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
@@ -38,22 +38,172 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/signin}">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" th:href="@{/login}">Admin Login</a>
-        </li>
+       
       </ul>
     </div>
   </div>
 </nav>
-<!-- Start Nav Bar -->
 
 
+
+	</div>
+	<div>
+		</section>
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div>
+
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="#">Podcast Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light red">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/500" alt="Image Title" />	
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title red"><a href="#">Podcast Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play red">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light green">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/500/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title green"><a href="#">Podcast Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play green">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+		<article class="postcard light yellow">
+			<a class="postcard__img_link" href="#">
+				<img class="postcard__img" src="https://picsum.photos/501/501" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title yellow"><a href="#">Podcast Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play yellow">
+						<a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+</section>
 	</div>
 	
 	<div th:fragment="footer">
 		<div class="bg-dark text-white">
   <p class="text-center p-4 m-0">Footer Content</p>
+<!--<div class="share-buttons">
+  <div class="share-button">
+    <div class="share-button-secondary">
+      <div class="share-button-secondary-content">
+        share on twitter
+      </div>
+    </div>
+    <div class="share-button-primary">
+      <i class="share-button-icon fa fa-twitter"></i>
+    </div>
+  </div>
 
+  <div class="share-button">
+    <div class="share-button-secondary">
+      <div class="share-button-secondary-content">
+        share on facebook
+      </div>
+    </div>
+    <div class="share-button-primary">
+      <i class="share-button-icon fa fa-facebook"></i>
+    </div>
+  </div>
+
+  <div class="share-button">
+    <div class="share-button-secondary">
+      <div class="share-button-secondary-content">
+        pin on pinterest
+      </div>
+    </div>
+    <div class="share-button-primary">
+      <i class="share-button-icon fa fa-pinterest"></i>
+    </div>
+  </div>
+  
+  <div class="share-button">
+    <div class="share-button-secondary">
+      <div class="share-button-secondary-content">
+        share on tumblr
+      </div>
+    </div>
+    <div class="share-button-primary">
+      <i class="share-button-icon fa fa-tumblr"></i>
+    </div>
+  </div>
+  
+  <div class="share-button">
+    <div class="share-button-secondary">
+      <div class="share-button-secondary-content">
+        share on google+
+      </div>
+    </div>
+    <div class="share-button-primary">
+      <i class="share-button-icon fa fa-google-plus"></i>
+    </div>
+  </div>-->
+</div>
 		<!--<h6>&copy;www.votingGO.com</h6>-->
 		<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -68,7 +218,11 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
     -->
-    <script th:src="@{/js/style.js}"></script>
+    <script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+    <script th:src="@{/js/login.js}"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</div>

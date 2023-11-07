@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Helper.Message;
+import com.example.demo.config.OtpEmailTemplate;
 import com.example.demo.entity.User;
 import com.example.demo.exception.UserAlreadyExistsException;
 import com.example.demo.repository.UserRepository;
@@ -33,8 +35,12 @@ public class HomeController {
 
 	@Autowired
 	private UserService userService;
+	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private OtpEmailTemplate emailTemplate;
 
 	Object attribute = null;
 
@@ -66,8 +72,9 @@ public class HomeController {
 			System.out.println("User" + user);
 
 			model.addAttribute("User", new User());
-
 			session.setAttribute("message", new Message("Successfully Register :)", "alert-success"));
+			
+			emailTemplate.AfterRegisterUser(user.getEmail(), user.getUsername());
 		  } catch (UserAlreadyExistsException ex) {
 	            // Handle UserAlreadyExistsException
 	            model.addAttribute("User", user);
@@ -86,4 +93,5 @@ public class HomeController {
 
 		return"login";
 	}
+	
 }

@@ -84,3 +84,26 @@
   text-decoration:none;
 }
 
+ /* password toggle start */
+      .password-section {
+         position: relative;
+         display: inline-block;
+      }
+
+      .password-section .fa-eye {
+         position: absolute;
+         top: 76%;
+         right: 22px; /* Adjust this value to control the icon's position */
+         transform: translateY(-50%);
+         cursor: pointer;
+      }
+      .password-section .fa-eye-slash {
+         position: absolute;
+         top: 76%;
+         right: 22px; /* Adjust this value to control the icon's position */
+         transform: translateY(-50%);
+         cursor: pointer;
+      }
+      
+
+   /* password toggle end */

@@ -83,7 +83,9 @@ body{
 	font-size: 36px;
 	cursor: pointer;
 }
-
+.button-space {
+    margin-top: 10px; /* Adjust the margin-top value as needed */
+}
 
 
 
