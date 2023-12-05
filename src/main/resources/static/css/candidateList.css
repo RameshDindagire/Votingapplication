@@ -1,0 +1,263 @@
+body{
+	background: #e2e2e2!important;
+}
+
+.bg-primary{
+
+	background: #009688 ! important;
+}
+.banner{
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)) ,url(../img/banner.jpg);
+	background-size:cover;
+	color: white;
+}
+*.my-card{
+	padding: 20px;
+	background: #FFFFFF;
+}
+
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 700px;
+  height: 420px;
+  border: 1px solid #9C9C9C;
+  background-color: rgb(255, 255, 255);
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/*  side bar */
+
+@media only screen and (max-width :600px){
+	.sidebar{
+	display: none;
+	width: 50% !important;
+	background: white;
+	height: 100vh;
+	position: fixed;
+	padding-top: 20px;
+	
+	}
+	.content{
+		margin-left: 0%!important;
+	}
+}
+
+.sidebar{
+	width: 18%;
+	background: white;
+	height: 100%;
+	position: fixed;
+	padding-top: 45px;
+}
+.sidebar a{
+	display: block;
+	width: 100%;
+	padding: 10px 25px;
+	color: gray;
+}
+
+.sidebar a:hover{
+	background: #e2e2e2;
+}
+.sidebar .divider{
+	height: .5px;
+	width: 100%;
+	background: #e2e2e2;
+	margin-top: 10px;
+}
+.content{
+	margin-left: 20%;
+}
+.sidebar .crossBtn{
+	position: absolute;
+	top: 0;
+	right: 35px;
+	font-size: 36px;
+	cursor: pointer;
+}
+.button-space {
+    margin-top: 10px; /* Adjust the margin-top value as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.mainFrom{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+.mainForm {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color: #e8e8e8;
+  font-family:arial;
+}
+.form {
+  --background: #ffffff;
+  --text: #414856;
+  --radio: #7C96B2;
+  --radio-checked: #4F29F0;
+  --radio-size: 20px;
+  --width: auto;
+  --height: auto;
+  --border-radius: 10px;
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  color: var(--text);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: auto var(--radio-size);
+  align-items: center;
+}
+
+.form label {
+  display: flex;
+  align-items: center; /* Center the label content vertically */
+  gap: 10px; /* Add some space between the radio button and text */
+}
+.form input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  height: var(--radio-size);
+  width: var(--radio-size);
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  border: 2px solid var(--radio);
+  background: transparent;
+  border-radius: 50%;
+  display: grid;
+  justify-self: end;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  transition: border .5s ease;
+}
+
+.form input[type="radio"]::before, .form input[type="radio"]::after {
+  content: "";
+  display: flex;
+  justify-self: center;
+  border-radius: 50%;
+}
+
+.form input[type="radio"]::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+  z-index: 1;
+  opacity: var(--opacity, 1);
+}
+
+.form input[type="radio"]::after {
+  position: relative;
+  width: calc(100% /2);
+  height: calc(100% /2);
+  background: var(--radio-checked);
+  top: var(--y, 100%);
+  transition: top 0.5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+}
+
+.form input[type="radio"]:checked {
+  --radio: var(--radio-checked);
+}
+
+.form input[type="radio"]:checked::after {
+  --y: 0%;
+  animation: stretch-animate .3s ease-out .17s;
+}
+
+.form input[type="radio"]:checked::before {
+  --opacity: 0;
+}
+
+.form input[type="radio"]:checked ~ input[type="radio"]::after {
+  --y: -100%;
+}
+
+.form input[type="radio"]:not(:checked)::before {
+  --opacity: 1;
+  transition: opacity 0s linear .5s;
+}
+
+@keyframes stretch-animate {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  28% {
+    transform: scale(1.15, 0.85);
+  }
+
+  50% {
+    transform: scale(0.9, 1.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.socials {
+  position: fixed;
+  display: block;
+  left: 20px;
+  bottom: 20px;
+}
+
+.socials > a {
+  display: block;
+  width: 30px;
+  opacity: .2;
+  transform: scale(var(--scale, 0.8));
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+}
+
+.socials > a:hover {
+  --scale: 1;
+}
+
+
+/*Here is Submmit Button */
+.submit-button {
+  background-color: #4F29F0; /* Set the background color */
+  color: white; /* Set the text color */
+  padding: 10px 20px; /* Add padding to the button */
+  border: none; /* Remove the border */
+  border-radius: 5px; /* Add border-radius for rounded corners */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  font-size: 16px; /* Set the font size */
+}
+
+/* Style the button on hover */
+.submit-button:hover {
+  background-color: #45a049; /* Darken the background color */
+}

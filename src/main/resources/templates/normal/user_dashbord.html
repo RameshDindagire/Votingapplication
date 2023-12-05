@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		
+	<link rel="stylesheet" th:href="@{/css/loginDasbord.css}">
+	
+</head>
+<body>
+	<section>
+	
+	<!-- Start Nav Bar -->
+	<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Voting Page</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto text-uppercase">
+				<li class="nav-item active"><a class="nav-link" href="#"
+					th:href="@{/}">Home <span class="sr-only">(current)</span>
+				</a></li>
+
+				<li class="nav-item"><a class="nav-link" href="#"
+					th:href="@{/user/select}">Voting From</a></li>
+
+				  Dynamic URL|| th:href="@{/user/index}" 
+				<li class="nav-item"><a class="nav-link " href="#"><span
+						th:text="${user.username}"></span></a></li>
+
+
+				<li class="nav-item"><a class="nav-link " th:href="@{/logout}">Logout</a></li>
+
+
+			</ul>
+
+		</div>
+	</nav>-->
+	<nav class="navbar navbar-inverse bs-dark">
+    
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+         <!-- Move the logo inside navbar-header -->
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<a class="navbar-brand" th:href="@{/user/index}">votingBharaT</a> <span class="sr-only">(current)</span>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">Explores <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">News</a></li>
+                    <li><a th:href="@{/user/select}">Voting Form</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Fashion</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Videos</a></li>
+                </ul>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-left form-horizontal" role="search">
+            <div class="input-group">
+                <input type="text" class="search-box" placeholder="Search">
+                <button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                Account 
+                <img src="https://docs.htmlcsstoimage.com/assets/images/dog.jpg" class="img-circle" alt="Profile Image"th:text="${user.username}" />
+               
+                </a>
+                
+                <ul class="dropdown-menu">
+				
+				
+					<li><a href="#exampleModalCenter" data-toggle="modal">Info</a></li>
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Followers</a></li>
+                    <li role="separator" class="divider"></li> 
+                    <li><a href="#" th:href="@{/logout}">Logout</a></li>
+                    
+                </ul>
+			      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			    <div class="modal-dialog modal-dialog-centered" role="document">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+			                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			                    <span aria-hidden="true">&times;</span>
+			                </button>
+			            </div>
+			            <div class="modal-body" th:text="${user.username}">
+			                
+			            </div>
+			            <div class="modal-footer">
+			                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			                <button type="button" class="btn btn-primary">Save changes</button>
+			            </div>
+			        </div>
+			  	  </div>
+				</div>   
+            </li>
+        </ul>
+    </div>
+    <marquee class="blink">Welcome to The VotingBhart.com [ Voting Lines Open Till 11/11/2023 ].</marquee>
+    <div class="navbar-header">
+</nav>
+
+
+
+<!--Here is Upcomig Voting Lines Code-->
+<section class="wrapper">
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  <div class="row">
+<div class="col-12 col-sm-6 col-md-4 mb-4">
+	 <div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?voting,page');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?voting,page" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Web Developmet Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png?format=auto&version=1688931977&width=80&height=80" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-dark d-block">Oz Coruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          
+        </div>
+      </div></div>
+  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Design Studio Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          
+        </div>
+      </div></div>
+   
+    <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt=" Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">UI/UX Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          
+        </div>
+      </div></div>
+     <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          
+        </div>
+      </div></div>
+  <div class="col-sm-12 col-md-6 col-lg-4 mb-4"><div class="card text-dark card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-dark" herf="https://creativemanner.com">Creative Manner Design Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          
+          </div>
+        </div>
+      </div></div>
+  
+</div>
+  
+</div>
+</section>
+
+<!--End Voting line Data Code -->
+	
+	 
+	<!-- End Navbar -->
+  <!-- <div class="wrapper">
+    <div class="title">Your Profession</div>
+    <div class="box">
+      <input type="radio" name="select" id="value-1">
+      <input type="radio" name="select" id="value-2">
+      <input type="radio" name="select" id="value-3">
+      <input type="radio" name="select" id="value-4">
+      <label for="value-1" class="value-1">
+        <div class="select-dots"></div>
+        <div class="text">Software Architect</div>
+      </label>
+      <label for="value-2" class="value-2">
+        <div class="select-dots"></div>
+        <div class="text">Business Analyst</div>
+      </label>
+      <label for="value-3" class="value-3">
+        <div class="select-dots"></div>
+        <div class="text">Software Tester</div>
+      </label>
+      <label for="value-4" class="value-4">
+        <div class="select-dots"></div>
+        <div class="text">Software Developer</div>
+      </label>
+    </div>
+  </div> -->
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    -->
+
+
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

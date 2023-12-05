@@ -1,0 +1,34 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: iamrameshdindagire@gmail.com
+    password: dmmirfpvjpzwtndd
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/voting_app
+    username: root
+    password: admin@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: mydb
+    redis:
+      host: 127.0.0.1  # Redis server host (change to your Redis server host)
+      port: 6379       # Redis server port (change to your Redis server port)
+
+server:
+  port: 8282
+  
+logging:
+  level:
+    org.springframework.security: DEBUG
